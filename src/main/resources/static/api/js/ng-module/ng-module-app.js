@@ -22,7 +22,8 @@ app.config(['$routeProvider', '$locationProvider',
     })
     .when('/search',
     {
-      templateUrl: GBL_COFG.urlTemplate('search.html')
+      templateUrl: GBL_COFG.urlTemplate('search.html'),
+      controller: 'ngAppControllerBuscador'
     })
     .when('/test-bbdd',
     {
