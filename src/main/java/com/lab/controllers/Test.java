@@ -25,12 +25,11 @@ public class Test
   @RequestMapping(value = "/test", //Nombre controlador
                   method = RequestMethod.POST, //Tipo POST
                   produces = MediaType.APPLICATION_JSON_VALUE) //Vamos a trabajar con JSON
+  
   public List<TestModel> test(@RequestBody TestModel obj) throws Exception //Para recibir @RequestBody y siempre recibo un modelo,
           // es decir un objeto de tipo TestModel
   {
       
-    System.out.println(obj.getPropiedad());
-    System.out.println(obj.getTable());
     List<TestModel> x = iService.testService(obj);
 
     return x;
