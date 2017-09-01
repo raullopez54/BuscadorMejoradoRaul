@@ -14,11 +14,20 @@ public class ItemsServiceImpl implements ItemsService
   @Autowired
   ItemsMapper iMapper;
 
-
+  //Para que salgan todos los elementos
   @Override
-  public List<ItemsModel> testService(ItemsModel obj) throws Exception
+  public List<ItemsModel> allItemsTestService(ItemsModel obj) throws Exception
   {
-    List<ItemsModel> x = iMapper.testMapper(obj);
+    List<ItemsModel> x = iMapper.allItemsTestMapper(obj);
+
+    return x;
+  }
+
+  //Para que salga la búsqueda
+  @Override
+  public List<ItemsModel> getItemsTestService(ItemsModel obj) throws Exception
+  {
+    List<ItemsModel> x = iMapper.getItemsTestMapper(obj);
 
     return x;
   }

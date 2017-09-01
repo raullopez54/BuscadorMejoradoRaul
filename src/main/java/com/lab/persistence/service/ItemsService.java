@@ -7,6 +7,10 @@ import java.util.List;
 public interface ItemsService
 {
 
-  public List<ItemsModel> testService(ItemsModel obj) throws Exception;
+  //Para que salgan todos los elementos
+  public List<ItemsModel> allItemsTestService(ItemsModel obj) throws Exception;
+    
+  //Para hacer la búsqueda
+  public List<ItemsModel> getItemsTestService(ItemsModel obj) throws Exception;
 
 }

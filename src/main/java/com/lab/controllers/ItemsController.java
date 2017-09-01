@@ -20,15 +20,33 @@ public class ItemsController
   @Autowired
   ItemsService iService;
 
+    //PARA OBTENER TODOS LOS ELEMENTOS
+  
+  @ResponseBody
+  @RequestMapping(value = "/allItems",
+                  method = RequestMethod.POST,
+                  produces = MediaType.APPLICATION_JSON_VALUE)
+  
+  public List<ItemsModel> allItems(@RequestBody ItemsModel obj) throws Exception
+  {
+    List<ItemsModel> x = iService.allItemsTestService(obj);
 
+    return x;
+  }
+  
+  
+  
+
+  //PARA OBTENER LOS RESULTADOS DE LA BÚSQUEDA
+  
   @ResponseBody
   @RequestMapping(value = "/getItems",
                   method = RequestMethod.POST,
                   produces = MediaType.APPLICATION_JSON_VALUE)
   
-  public List<ItemsModel> test(@RequestBody ItemsModel obj) throws Exception
+  public List<ItemsModel> getItems(@RequestBody ItemsModel obj) throws Exception
   {
-    List<ItemsModel> x = iService.testService(obj);
+    List<ItemsModel> x = iService.getItemsTestService(obj);
 
     return x;
   }

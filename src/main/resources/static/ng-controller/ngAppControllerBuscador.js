@@ -9,6 +9,21 @@ app.controller('ngAppControllerBuscador',
         ms: 750
       }
     };
+    
+    //PARA QUE SALGAN TODOS LOS ELEMENTOS DEL BBDD
+    
+    (function ()
+    {
+      $http.post('/allItems', {})
+      .then(function (response)
+      {
+        var data = response.data;
+
+        $scope.items = data;
+      })
+    })();
+
+    //PARA QUE SALGAN TODOS LOS ELEMENTOS BUSCADOS DEL BBDD
 
     $scope.searchFn = function (e)
     {
@@ -24,7 +39,6 @@ app.controller('ngAppControllerBuscador',
         .then(function (response)
         {
           var data = response.data;
-
           $scope.items = data;
         });
 
