@@ -37,16 +37,30 @@ public class ItemsController
   
   
 
-  //PARA OBTENER LOS RESULTADOS DE LA BÚSQUEDA
+  //PARA OBTENER LOS RESULTADOS DE LA BÚSQUEDA SI ES UNA CADENA
   
   @ResponseBody
-  @RequestMapping(value = "/getItems",
+  @RequestMapping(value = "/cadena",
                   method = RequestMethod.POST,
                   produces = MediaType.APPLICATION_JSON_VALUE)
   
-  public List<ItemsModel> getItems(@RequestBody ItemsModel obj) throws Exception
+  public List<ItemsModel> cadena(@RequestBody ItemsModel obj) throws Exception
   {
-    List<ItemsModel> x = iService.getItemsTestService(obj);
+    List<ItemsModel> x = iService.cadenaItemsTestService(obj);
+
+    return x;
+  }
+  
+  //PARA OBTENER LOS RESULTADOS DE LA BÚSQUEDA SI ES UN NUMERO
+  
+  @ResponseBody
+  @RequestMapping(value = "/numero",
+                  method = RequestMethod.POST,
+                  produces = MediaType.APPLICATION_JSON_VALUE)
+  
+  public List<ItemsModel> numero(@RequestBody ItemsModel obj) throws Exception
+  {
+    List<ItemsModel> x = iService.numeroItemsTestService(obj);
 
     return x;
   }

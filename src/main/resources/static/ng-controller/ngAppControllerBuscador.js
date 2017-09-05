@@ -1,6 +1,13 @@
 app.controller('ngAppControllerBuscador',
 ['$scope', '$http', '$timeout', function ($scope, $http, $timeout)
   {
+
+    /**************************************************************************
+     * 
+     * CONFIG
+     * 
+     **************************************************************************/
+
     var timer =
     {
       search:
@@ -10,20 +17,37 @@ app.controller('ngAppControllerBuscador',
       }
     };
     
-    //PARA QUE SALGAN TODOS LOS ELEMENTOS DEL BBDD
-    
+    var msg = 
+    {
+      el: document.querySelector('#msg > span'),
+      style: 
+      {
+         classNotFound: 'notFound' 
+      }
+    };
+
+    /**************************************************************************
+     * 
+     * INI
+     * 
+     **************************************************************************/
+
     (function ()
     {
       $http.post('/allItems', {})
       .then(function (response)
       {
-        var data = response.data;
-
-        $scope.items = data;
+        scopeItems(response.data);
       })
     })();
 
-    //PARA QUE SALGAN TODOS LOS ELEMENTOS BUSCADOS DEL BBDD
+
+
+    /**************************************************************************
+     * 
+     * FUNCTIONS MODEL
+     * 
+     **************************************************************************/
 
     $scope.searchFn = function (e)
     {
@@ -32,17 +56,53 @@ app.controller('ngAppControllerBuscador',
       $timeout.cancel(timer.search.id);
       timer.search.id = $timeout(function ()
       {
-        $http.post('/getItems',
+        //$http.post('/getItems',
+        $http.post(isNotNum(value),
         {
           nombre: value
         })
         .then(function (response)
         {
-          var data = response.data;
-          $scope.items = data;
+          scopeItems(response.data);
         });
 
       }, timer.search.ms);
     };
 
+
+
+
+    /**************************************************************************
+     * 
+     * PRIVATE FUNCTIONS
+     * 
+     **************************************************************************/
+    function scopeItems(data)
+    {
+      var length = data.length;
+      
+      msg.el.classList.remove(msg.style.classNotFound);
+      
+      if(length > 0)
+      {
+        $scope.items = data;
+      }
+      else
+      {
+        msg.el.classList.add(msg.style.classNotFound);
+      }
+      
+      $scope.msg = data.length;
+    }
+
   }]);
+  
+  //////////////////////////////////////////////////////
+  //Función para indicar si es un número o cadena
+  
+    function isNotNum(param){
+        
+        var x = isNaN(param) ? '/cadena':'/numero';
+        return x;
+    }
+  

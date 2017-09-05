@@ -23,13 +23,23 @@ public class ItemsMapperImpl implements ItemsMapper
     return this.addItemsModel("SELECT * FROM items");
   }
 
-//Para que salga la búsqueda
+//Para que salga la búsqueda por cadena
   @Override
-  public List<ItemsModel> getItemsTestMapper(ItemsModel obj) throws Exception
+  public List<ItemsModel> cadenaItemsTestMapper(ItemsModel obj) throws Exception
   {
     return this.addItemsModel(" SELECT * " +
                               " FROM items " +
                               " WHERE (nombre LIKE '%" + obj.getNombre() + "%')");
+  }
+  
+  //Para que salga la búsqueda por numero
+  @Override
+  public List<ItemsModel> numeroItemsTestMapper(ItemsModel obj) throws Exception
+  {
+    return this.addItemsModel(" SELECT * " +
+                              " FROM items " +
+                              " WHERE (nombre LIKE '%" + obj.getNombre() + "%')" + 
+                                      "OR WHERE (nombre LIKE '%" + obj.getNombre() + "%')");
   }
 
 

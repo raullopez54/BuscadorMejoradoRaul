@@ -9,7 +9,11 @@ public interface ItemsMapper
 {
   public List<ItemsModel> allItemsTestMapper(ItemsModel obj) throws Exception;
 
-//Para hacer la busqueda de elementos
+//Para hacer la busqueda de elementos por cadena
 
-  public List<ItemsModel> getItemsTestMapper(ItemsModel obj) throws Exception;
+  public List<ItemsModel> cadenaItemsTestMapper(ItemsModel obj) throws Exception;
+  
+  //Para hacer la busqueda de elementos por numero
+
+  public List<ItemsModel> numeroItemsTestMapper(ItemsModel obj) throws Exception;
 }

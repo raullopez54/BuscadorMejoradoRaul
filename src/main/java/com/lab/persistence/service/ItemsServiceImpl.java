@@ -23,11 +23,20 @@ public class ItemsServiceImpl implements ItemsService
     return x;
   }
 
-  //Para que salga la búsqueda
+  //Para que salga la búsqueda con cadenaq
   @Override
-  public List<ItemsModel> getItemsTestService(ItemsModel obj) throws Exception
+  public List<ItemsModel> cadenaItemsTestService(ItemsModel obj) throws Exception
   {
-    List<ItemsModel> x = iMapper.getItemsTestMapper(obj);
+    List<ItemsModel> x = iMapper.cadenaItemsTestMapper(obj);
+
+    return x;
+  }
+  
+   //Para que salga la búsqueda con numero
+  @Override
+  public List<ItemsModel> numeroItemsTestService(ItemsModel obj) throws Exception
+  {
+    List<ItemsModel> x = iMapper.numeroItemsTestMapper(obj);
 
     return x;
   }
