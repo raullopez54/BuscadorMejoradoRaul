@@ -1,6 +1,7 @@
 package com.lab.persistence.mapper;
 
 import com.lab.persistence.model.ItemsModel;
+import com.lab.persistence.model.PesoModel;
 import java.util.List;
 
 //Para que salgan todos los elementos
@@ -15,5 +16,5 @@ public interface ItemsMapper
   
   //Para hacer la busqueda de elementos por numero
 
-  public List<ItemsModel> numeroItemsTestMapper(ItemsModel obj) throws Exception;
+  public List<ItemsModel> numeroItemsTestMapper(PesoModel obj) throws Exception;
 }

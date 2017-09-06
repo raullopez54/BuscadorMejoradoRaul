@@ -2,6 +2,7 @@ package com.lab.controllers;
 
 
 import com.lab.persistence.model.ItemsModel;
+import com.lab.persistence.model.PesoModel;
 import com.lab.persistence.service.ItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -34,9 +35,6 @@ public class ItemsController
     return x;
   }
   
-  
-  
-
   //PARA OBTENER LOS RESULTADOS DE LA BÚSQUEDA SI ES UNA CADENA
   
   @ResponseBody
@@ -46,6 +44,7 @@ public class ItemsController
   
   public List<ItemsModel> cadena(@RequestBody ItemsModel obj) throws Exception
   {
+    System.out.println("LLEGA AQUI O QUE - CADENA");
     List<ItemsModel> x = iService.cadenaItemsTestService(obj);
 
     return x;
@@ -58,8 +57,9 @@ public class ItemsController
                   method = RequestMethod.POST,
                   produces = MediaType.APPLICATION_JSON_VALUE)
   
-  public List<ItemsModel> numero(@RequestBody ItemsModel obj) throws Exception
+  public List<ItemsModel> numero(@RequestBody PesoModel obj) throws Exception
   {
+    System.out.println("LLEGA AQUI O QUE - NUMERO");
     List<ItemsModel> x = iService.numeroItemsTestService(obj);
 
     return x;

@@ -38,7 +38,7 @@ app.controller('ngAppControllerBuscador',
       .then(function (response)
       {
         scopeItems(response.data);
-      })
+      });
     })();
 
 
@@ -57,15 +57,23 @@ app.controller('ngAppControllerBuscador',
       timer.search.id = $timeout(function ()
       {
         //$http.post('/getItems',
-        $http.post(isNotNum(value),
+          
+          
+          var x = isNotNum(value);
+          console.log(x);
+      
+            $http.post(x,
         {
-          nombre: value
+          nombre: value,
+          peso: value
+          
         })
         .then(function (response)
         {
           scopeItems(response.data);
         });
-
+            
+       
       }, timer.search.ms);
     };
 

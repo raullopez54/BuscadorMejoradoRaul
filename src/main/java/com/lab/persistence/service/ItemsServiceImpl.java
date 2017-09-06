@@ -4,6 +4,7 @@ import com.lab.persistence.mapper.ItemsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.lab.persistence.model.ItemsModel;
+import com.lab.persistence.model.PesoModel;
 import java.util.List;
 
 
@@ -27,6 +28,7 @@ public class ItemsServiceImpl implements ItemsService
   @Override
   public List<ItemsModel> cadenaItemsTestService(ItemsModel obj) throws Exception
   {
+    System.out.println("LLEGA AQUI O QUE - CADENA SERVICE");
     List<ItemsModel> x = iMapper.cadenaItemsTestMapper(obj);
 
     return x;
@@ -34,8 +36,9 @@ public class ItemsServiceImpl implements ItemsService
   
    //Para que salga la búsqueda con numero
   @Override
-  public List<ItemsModel> numeroItemsTestService(ItemsModel obj) throws Exception
+  public List<ItemsModel> numeroItemsTestService(PesoModel obj) throws Exception
   {
+    System.out.println("LLEGA AQUI O QUE - NUMERO SERVICE");
     List<ItemsModel> x = iMapper.numeroItemsTestMapper(obj);
 
     return x;
